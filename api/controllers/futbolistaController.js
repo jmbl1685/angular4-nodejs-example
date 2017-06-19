@@ -1,58 +1,54 @@
 'use strict'
 
-const Futbolista = require ('.././models/futbolista')
+const Futbolista = require('.././models/futbolista')
 
-function getFutbolistas (req,res){
+function getFutbolistas(req, res) {
 
-  Futbolista.find({}).sort('_id').exec((err,data)=>{
+  Futbolista.find({}).sort('_id').exec((err, data) => {
 
-    if (err){
+    if (err)
       res.status(500).send({
-        alert : 'Error al guardar el fútbolista'
+        alert: 'Error al guardar el fútbolista'
       })
-    }
 
-    if (!data){
+
+    if (!data)
       res.status(404).send({
-        alert : 'No hay fútbolista almacenados en la base de datos'
+        alert: 'No hay fútbolista almacenados en la base de datos'
       })
-    }
 
-    res.status(200).send({
-      data
-    })
+
+    res.status(200).send({ data })
 
   })
 }
 
-function getFutbolista (req,res){
-   
+function getFutbolista(req, res) {
+
   const id = req.params.id
 
-  Futbolista.findById(id,(err,data)=>{
+  Futbolista.findById(id, (err, data) => {
 
-    if (err){
+    if (err)
       res.status(500).send({
-        alert : 'El id del fútbolista no ha sido encontrado'
+        alert: 'El id del fútbolista no ha sido encontrado'
       })
-    }
 
-    if (!data){
+
+    if (!data)
       res.status(404).send({
-        alert : 'No hay fútbolista almacendos en la base de datos'
+        alert: 'No hay fútbolista almacendos en la base de datos'
       })
-    }
 
-    res.status(200).send({
-      data
-    })
+
+    res.status(200).send({ data })
 
   })
 
 }
 
-function saveFutbolista (req,res){
-  
+function saveFutbolista(req, res) {
+
   const futbolista = new Futbolista()
 
   futbolista.nombre = req.body.nombre
@@ -62,75 +58,67 @@ function saveFutbolista (req,res){
   futbolista.dorsal = req.body.dorsal
   futbolista.imagenUrl = req.body.imagenUrl
 
+  futbolista.save((err, data) => {
 
-  futbolista.save((err,data)=>{
-    if (err){
+    if (err)
       res.status(500).send({
-        alert : 'Error al guardar el fútbolista'
+        alert: 'Error al guardar el fútbolista'
       })
-    }
 
     res.status(200).send({
-      futbolista : data
+      futbolista: data
     })
 
   })
 
 }
 
-function updateFutbolista (req,res){
-  
+function updateFutbolista(req, res) {
+
   const id = req.params.id
 
-  Futbolista.findByIdAndUpdate(id,req.body,(err,data)=>{
+  Futbolista.findByIdAndUpdate(id, req.body, (err, data) => {
 
-    if (err){
+    if (err)
       res.status(500).send({
-        alert : 'El id del fútbolista no ha sido actualizado'
+        alert: 'El id del fútbolista no ha sido actualizado'
       })
-    }
 
-    if (!data){
+    if (!data)
       res.status(404).send({
-        alert : 'No hay fútbolista almacendos en la base de datos'
+        alert: 'No hay fútbolista almacendos en la base de datos'
       })
-    }
 
     res.status(200).send({
-      JugadorActualizado :data
+      JugadorActualizado: data
     })
 
   })
 
 }
 
-function deleteFutbolista (req,res){
-  
+function deleteFutbolista(req, res) {
+
   const id = req.params.id
 
-  Futbolista.findByIdAndUpdate(id,req.body,(err,data)=>{
+  Futbolista.findByIdAndUpdate(id, req.body, (err, data) => {
 
-    if (err){
+    if (err)
       res.status(500).send({
-        alert : 'El id del fútbolista no ha sido borrado'
+        alert: 'El id del fútbolista no ha sido borrado'
       })
-    }
 
-    if (!data){
-      res.status(404).send({
-        alert : 'No hay fútbolista almacendos en la base de datos'
+
+    if (!data)
+
+      return res.status(404).send({
+        alert: 'No hay fútbolista almacendos en la base de datos'
       })
-    }else{
-      data.remove((err =>{
-        if(!err){
-          res.status(200).send({
-          JugadorEliminado :data
-          })
-        }
-      }))
-    }
 
-    
+    data.remove((err => {
+      if (!err) 
+        return res.status(200).send({ JugadorEliminado: data })   
+    }))
 
   })
 
