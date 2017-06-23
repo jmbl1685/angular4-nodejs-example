@@ -1,0 +1,28 @@
+
+<div class="ui floating message" style="margin:10px">
+<div class="ui cards" id="contenedor">
+  <div class="card" id="card">
+    <div class="image">
+      <img src="{{futbolista.imagenUrl}}" >
+    </div>
+    <div class="content">
+      <div class="header">{{futbolista.nombre}} ({{futbolista.dorsal}})</div>
+      <div class="meta">
+        <a>{{futbolista.nacionalidad}}</a>
+      </div>
+      <div class="description">
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        {{futbolista.equipo}}
+      </span>
+      <span>
+        <i class="soccer icon"></i>
+        {{futbolista.posicion}}
+      </span>
+    </div>
+  </div>
+</div>
+<i class="arrow left icon" [routerLink]="['/']"></i>
+</div>

@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+
+*{
+  /* font-family: 'Ribeye Marrow', cursive; */
+}
+
+#card:hover{
+  -moz-box-shadow: 0px 0px 10px #B40404; 
+  -webkit-box-shadow: 0px 0px 10px #B40404; 
+  box-shadow: 0px 0px 10px #B40404;
+  border: 0,1px solid #B40404;     
+}
+
+#icon{
+  display: none
+}
+
+#card:hover #icon{
+  display: block  
+}

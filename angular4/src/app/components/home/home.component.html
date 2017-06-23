@@ -1,0 +1,37 @@
+<div class="ui center aligned header">
+  <button class="ui positive button" [routerLink]="['/crear-jugador']">
+  <i class="user icon"></i>
+  Registrar jugador
+</button>
+</div>
+
+<div class="ui floating message center" style="margin:10px" >
+<div class="ui link cards" id="contenedor">
+  <div class="card" *ngFor="let j of futbolistas" id="card" >
+    <div class="image">
+      <img src="{{j.imagenUrl}}">
+    </div>
+    <div class="content">
+      <i class="right floated unhide icon" id="icon" style="color: black" [routerLink]="['/jugador', j._id]"></i>
+      <i  class="right floated trash icon" id="icon" style="color: red" (click)="eliminarJugador(j._id)"></i>
+      <i  class="right floated edit icon" id="icon" style="color: green" [routerLink]="['/editar-jugador', j._id]" ></i>
+      <div class="header">{{j.nombre}} ({{j.dorsal}})</div>
+      <div class="meta">
+        <a>{{j.nacionalidad}}</a>
+      </div>
+      <div class="description">
+        
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        {{j.equipo}}
+      </span>
+      <span>
+        <i class="soccer icon"></i>
+        {{j.posicion}}
+      </span>
+    </div>
+  </div>
+</div>
+</div>
