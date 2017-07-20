@@ -1,6 +1,6 @@
 <h1>APIRest Futbolistas</h1><h3>MongoDB Express Angular Nodejs</h3>
-<img height="500" width="850" src="https://image.ibb.co/hSvXN5/mean1.png"></img>
-<img height="500" width="850" src="https://image.ibb.co/g8DK25/mean2.png"></img>
+<img width="600" src="https://image.ibb.co/hSvXN5/mean1.png"></img>
+<img width="600" src="https://image.ibb.co/g8DK25/mean2.png"></img>
 </img>
 
     data: [
