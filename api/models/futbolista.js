@@ -1,7 +1,7 @@
 'use strict'
 
 const mongoose = require ('mongoose'),
-      Schema = mongoose.Schema;
+      Schema = mongoose.Schema
 
 const futbolistaSchema = Schema({
   nombre : String,
@@ -12,4 +12,4 @@ const futbolistaSchema = Schema({
   imagenUrl : String
 })
 
-module.exports = mongoose.model ('Futbolista',futbolistaSchema);
+module.exports = mongoose.model ('Futbolista',futbolistaSchema)

@@ -14,7 +14,7 @@ function getFutbolistas (req,res){
 
     if (!data){
       res.status(404).send({
-        alert : 'No hay fútbolista almacendos en la base de datos'
+        alert : 'No hay fútbolista almacenados en la base de datos'
       })
     }
 
@@ -27,7 +27,7 @@ function getFutbolistas (req,res){
 
 function getFutbolista (req,res){
    
-  const id = req.params.id;
+  const id = req.params.id
 
   Futbolista.findById(id,(err,data)=>{
 
@@ -53,14 +53,14 @@ function getFutbolista (req,res){
 
 function saveFutbolista (req,res){
   
-  const futbolista = new Futbolista();
+  const futbolista = new Futbolista()
 
-  futbolista.nombre = req.body.nombre;
-  futbolista.posicion = req.body.posicion;
-  futbolista.equipo = req.body.equipo;
-  futbolista.nacionalidad = req.body.nacionalidad;
-  futbolista.dorsal = req.body.dorsal;
-  futbolista.imagenUrl = req.body.imagenUrl;
+  futbolista.nombre = req.body.nombre
+  futbolista.posicion = req.body.posicion
+  futbolista.equipo = req.body.equipo
+  futbolista.nacionalidad = req.body.nacionalidad
+  futbolista.dorsal = req.body.dorsal
+  futbolista.imagenUrl = req.body.imagenUrl
 
 
   futbolista.save((err,data)=>{
@@ -80,7 +80,7 @@ function saveFutbolista (req,res){
 
 function updateFutbolista (req,res){
   
-  const id = req.params.id;
+  const id = req.params.id
 
   Futbolista.findByIdAndUpdate(id,req.body,(err,data)=>{
 
@@ -106,7 +106,7 @@ function updateFutbolista (req,res){
 
 function deleteFutbolista (req,res){
   
-  const id = req.params.id;
+  const id = req.params.id
 
   Futbolista.findByIdAndUpdate(id,req.body,(err,data)=>{
 
